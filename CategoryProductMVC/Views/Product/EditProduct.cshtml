@@ -1,0 +1,18 @@
+﻿@model CategoryProductMVC.Models.Product
+
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+<h2>EditProduct</h2>
+@using (Html.BeginForm("EditProduct", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(item => item.ProductId)
+    <p>
+        Product Name: @Html.TextBoxFor(item => item.ProductName)
+    </p>
+    <p>
+        <input type="submit" value="Edit Product" /> |
+        @Html.ActionLink("Back to List", "DisplayProducts")
+    </p>
+}

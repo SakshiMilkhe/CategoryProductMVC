@@ -1,0 +1,17 @@
+﻿@model CategoryProductMVC.Models.Category
+
+@{
+    ViewBag.Title = "DetailsCategory";
+}
+
+<h2>DetailsCategory</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(item => item.CategoryId)
+    <p>
+        Category Name: @Html.TextBoxFor(item => item.CategoryName, new { @readonly = "readonly" })
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "DisplayCategories")
+    </p>
+}

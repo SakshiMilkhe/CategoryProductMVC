@@ -1,0 +1,36 @@
+﻿@model IPagedList<CategoryProductMVC.Models.Category>
+
+@{
+    ViewBag.Title = "DisplayCategories";
+}
+
+@using PagedList;
+@using PagedList.Mvc;
+
+<h2>DisplayCategories</h2>
+@Html.ActionLink("Create New", "CreateCategory")
+<br />
+<br />
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(item => item.First().CategoryId)</th>
+        <th>@Html.DisplayNameFor(item => item.First().CategoryName)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>
+                @Html.ActionLink("Edit", "EditCategory", new { id = item.CategoryId }) |
+                @Html.ActionLink("Details", "DetailsCategory", new { id = item.CategoryId }) |
+                @Html.ActionLink("Delete", "DeleteCategory", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, i => Url.Action("DisplayCategories", "Category", new { i, search = Request.QueryString["search"]} ))
+<br />
+<br />
+@Html.ActionLink("Add Product", "DisplayProducts", "Product")

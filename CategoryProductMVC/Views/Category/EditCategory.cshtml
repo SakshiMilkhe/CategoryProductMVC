@@ -1,0 +1,18 @@
+﻿@model CategoryProductMVC.Models.Category
+
+@{
+    ViewBag.Title = "EditCategory";
+}
+
+<h2>EditCategory</h2>
+@using (Html.BeginForm("EditCategory", "Category", FormMethod.Post))
+{
+    @Html.HiddenFor(item => item.CategoryId)
+    <p>
+        Category Name: @Html.TextBoxFor(item => item.CategoryName)
+    </p>
+    <p>
+        <input type="submit" value="Edit Category" /> |
+        @Html.ActionLink("Back to List", "DisplayCategories")
+    </p>
+}

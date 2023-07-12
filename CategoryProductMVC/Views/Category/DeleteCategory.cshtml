@@ -1,0 +1,18 @@
+﻿@model CategoryProductMVC.Models.Category
+
+@{
+    ViewBag.Title = "DeleteCategory";
+}
+
+<h2>DeleteCategory</h2>
+@using (Html.BeginForm("DeleteCategory", "Category", FormMethod.Post))
+{
+    @Html.HiddenFor(item => item.CategoryId)
+    <p>
+        Category Name: @Html.TextBoxFor(item => item.CategoryName, new { @readonly = "readonly" })
+    </p>
+    <p>
+        <input type="submit" value="Delete Category" /> |
+        @Html.ActionLink("Back to List", "DisplayCategories")
+    </p>
+}

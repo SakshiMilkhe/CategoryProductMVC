@@ -1,0 +1,17 @@
+﻿@model CategoryProductMVC.Models.Category
+
+@{
+    ViewBag.Title = "CreateCategory";
+}
+
+<h2>CreateCategory</h2>
+@using(Html.BeginForm("CreateCategory", "Category", FormMethod.Post))
+{
+    <p>
+        Category Name: @Html.TextBoxFor(item => item.CategoryName)
+    </p>
+    <p>
+        <input type="submit" value="Create Category" /> | 
+        @Html.ActionLink("Back to List", "DisplayCategories")
+    </p>
+}

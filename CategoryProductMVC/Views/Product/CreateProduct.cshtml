@@ -1,0 +1,20 @@
+﻿@model CategoryProductMVC.Models.Product
+
+@{
+    ViewBag.Title = "CreateProduct";
+}
+
+<h2>CreateProduct</h2>
+@using (Html.BeginForm("CreateProduct", "Product", FormMethod.Post))
+{
+    <p>
+        Category Name: @Html.DropDownListFor(item => item.CategoryId, new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))
+    </p>
+    <p>
+        Product Name: @Html.TextBoxFor(item => item.ProductName)
+    </p>
+    <p>
+        <input type="submit" value="Create Product" /> |
+        @Html.ActionLink("Back to List", "DisplayProducts")
+    </p>
+}
